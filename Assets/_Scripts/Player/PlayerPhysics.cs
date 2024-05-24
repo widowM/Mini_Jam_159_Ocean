@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class PlayerPhysics : MonoBehaviour
 {
-    private bool _isPushingRock = false;
+    private bool _isTouchingRock = false;
 
-    public bool IsPushingRock => _isPushingRock;
+    public bool IsTouchingRock => _isTouchingRock;
 
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Ball"))
         {
-            _isPushingRock = true;
+            _isTouchingRock = true;
         }
     }
 
@@ -20,7 +20,7 @@ public class PlayerPhysics : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ball"))
         {
-            _isPushingRock = false;
+            _isTouchingRock = false;
         }
     }
 }

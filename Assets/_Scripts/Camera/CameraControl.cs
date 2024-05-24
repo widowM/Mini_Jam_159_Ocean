@@ -14,6 +14,10 @@ public class CameraControl : MonoBehaviour
     [SerializeField] private float _maxOrthoSize = 10f;
 
     [SerializeField] private float _zoomSpeed = 1f;
+    [Header("Broadcast on Event Channels")]
+    [SerializeField] private VoidEventChannelSO _gameOverSO;
+
+    private bool _isGameOver;
 
     private void Start()
     {
@@ -24,8 +28,7 @@ public class CameraControl : MonoBehaviour
 
     void Update()
     {
-        // Switch to primary camera if pushing rock
-        bool shouldFollowPlayer = (_player.PlayerPhysics.IsPushingRock);
+        bool shouldFollowPlayer = (_player.PlayerPhysics.IsTouchingRock);
 
         ExecuteFollowCameraLogic(shouldFollowPlayer);
 
@@ -47,15 +50,23 @@ public class CameraControl : MonoBehaviour
     private void ExecuteZoomLogic()
     {
         // Zoom in
-        if (_player.PlayerPhysics.IsPushingRock && _cmCam.m_Lens.OrthographicSize > _minOrthoSize)
+        if (_player.PlayerPhysics.IsTouchingRock && _cmCam.m_Lens.OrthographicSize > _minOrthoSize)
         {
             _cmCam.m_Lens.OrthographicSize -= _zoomSpeed * Time.deltaTime;
         }
-
         // Zoom out
         else if (_player.PlayerMovement.IsPushingLeftBounds && _cmCam.m_Lens.OrthographicSize < _maxOrthoSize)
         {
             _cmCam.m_Lens.OrthographicSize += _zoomSpeed * Time.deltaTime;
+        }
+
+        // TODO: Put this in another script
+        // Game over check
+        if (_cmCam.m_Lens.OrthographicSize <= _minOrthoSize + 0.1f && !_isGameOver)
+        {
+            _isGameOver = true;
+            _gameOverSO.RaiseEvent();
+            this.enabled = false;
         }
     }
 
