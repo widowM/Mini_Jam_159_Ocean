@@ -15,7 +15,7 @@ Physics2DSettings:
   m_MaxRotationSpeed: 360
   m_BaumgarteScale: 0.2
   m_BaumgarteTimeOfImpactScale: 0.75
-  m_TimeToSleep: 0.5
+  m_TimeToSleep: 0.1
   m_LinearSleepTolerance: 0.01
   m_AngularSleepTolerance: 2
   m_DefaultContactOffset: 0.01
@@ -44,5 +44,5 @@ Physics2DSettings:
   m_CallbacksOnDisable: 1
   m_ReuseCollisionCallbacks: 1
   m_AutoSyncTransforms: 0
-  m_GizmoOptions: 10
+  m_GizmoOptions: 0
   m_LayerCollisionMatrix: ffffffffffffffffffffffffc7fffffff7fffffff7ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff

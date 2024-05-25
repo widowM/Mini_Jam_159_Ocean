@@ -7,6 +7,9 @@ public class PlayerVisual : MonoBehaviour
     [SerializeField] private Player _player;
     private float _lastDirection = 1;
     [SerializeField] private Transform _spriteTransform;
+    [SerializeField] private SpriteRenderer _characterSpriteRend;
+
+    public SpriteRenderer CharacterSpriteRend => _characterSpriteRend;
 
     private void Update()
     {
