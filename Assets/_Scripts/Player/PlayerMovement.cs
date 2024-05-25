@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
     [Range(0f, 1f)]
     [SerializeField] private float _walkOnAirForceFraction;
     [SerializeField] private Rigidbody2D _rb2D;
-    [SerializeField] private Transform _groundCheck;
+    [SerializeField] private Transform[] _groundChecks;
     [SerializeField] private LayerMask _groundCheckLayerMask;
     [SerializeField] private BoxCollider2D _playerCollider;
     [SerializeField] private CameraControl _cameraControl;
@@ -149,11 +149,19 @@ public class PlayerMovement : MonoBehaviour
 
     private bool CheckGrounded()
     {
-        Ray ray = new Ray(_groundCheck.position, Vector3.down);
+        foreach (Transform groundCheck in _groundChecks)
+        {
+            Ray ray = new Ray(groundCheck.position, Vector3.down);
 
-        RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction, 0.1f, _groundCheckLayerMask);
+            RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction, 0.1f, _groundCheckLayerMask);
 
-        return hit.collider != null;
+            if (hit.collider != null)
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     public static Bounds OrthographicBounds(Camera camera)
