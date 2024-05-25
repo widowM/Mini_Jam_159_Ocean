@@ -4079,79 +4079,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a8a05de0ac134f4f9d01bef6b9da077, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1001 &1803679225
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2294128021044137939, guid: ed04b9d1b5a0e6645814a8af68412c0d, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.97
-      objectReference: {fileID: 0}
-    - target: {fileID: 2294128021044137939, guid: ed04b9d1b5a0e6645814a8af68412c0d, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.4602828
-      objectReference: {fileID: 0}
-    - target: {fileID: 5804653874739510274, guid: ed04b9d1b5a0e6645814a8af68412c0d, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 6.98781
-      objectReference: {fileID: 0}
-    - target: {fileID: 5804653874739510274, guid: ed04b9d1b5a0e6645814a8af68412c0d, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -2.6054776
-      objectReference: {fileID: 0}
-    - target: {fileID: 5804653874739510274, guid: ed04b9d1b5a0e6645814a8af68412c0d, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.067785054
-      objectReference: {fileID: 0}
-    - target: {fileID: 5804653874739510274, guid: ed04b9d1b5a0e6645814a8af68412c0d, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5804653874739510274, guid: ed04b9d1b5a0e6645814a8af68412c0d, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5804653874739510274, guid: ed04b9d1b5a0e6645814a8af68412c0d, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5804653874739510274, guid: ed04b9d1b5a0e6645814a8af68412c0d, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5804653874739510274, guid: ed04b9d1b5a0e6645814a8af68412c0d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5804653874739510274, guid: ed04b9d1b5a0e6645814a8af68412c0d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5804653874739510274, guid: ed04b9d1b5a0e6645814a8af68412c0d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8555037710607093325, guid: ed04b9d1b5a0e6645814a8af68412c0d, type: 3}
-      propertyPath: m_Name
-      value: DoorButtonCouple
-      objectReference: {fileID: 0}
-    - target: {fileID: 8587941525372620283, guid: ed04b9d1b5a0e6645814a8af68412c0d, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -8.61
-      objectReference: {fileID: 0}
-    - target: {fileID: 8587941525372620283, guid: ed04b9d1b5a0e6645814a8af68412c0d, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.74
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: ed04b9d1b5a0e6645814a8af68412c0d, type: 3}
 --- !u!1 &1877558070
 GameObject:
   m_ObjectHideFlags: 0
@@ -4577,7 +4504,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2600792053943793150, guid: a06888cad774e6b449589c08f1f6f8d8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.8955538
+      value: 1.924515
       objectReference: {fileID: 0}
     - target: {fileID: 2600792053943793150, guid: a06888cad774e6b449589c08f1f6f8d8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4617,7 +4544,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7874425700481248731, guid: a06888cad774e6b449589c08f1f6f8d8, type: 3}
       propertyPath: orthographic size
-      value: 8.832808
+      value: 8.898629
       objectReference: {fileID: 0}
     - target: {fileID: 7874425700481248731, guid: a06888cad774e6b449589c08f1f6f8d8, type: 3}
       propertyPath: m_BackGroundColor.b
@@ -4715,7 +4642,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 543352648128549141, guid: 68fbc82e82474d047ab6c9bd850e4e44, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.8955538
+      value: 1.924515
       objectReference: {fileID: 0}
     - target: {fileID: 543352648128549141, guid: 68fbc82e82474d047ab6c9bd850e4e44, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4982,4 +4909,3 @@ SceneRoots:
   - {fileID: 779901253}
   - {fileID: 6950718405137402755}
   - {fileID: 6003469310072327041}
-  - {fileID: 1803679225}
