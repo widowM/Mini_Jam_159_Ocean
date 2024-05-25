@@ -4535,7 +4535,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2600792053943793150, guid: a06888cad774e6b449589c08f1f6f8d8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.83120394
+      value: 2.720125
       objectReference: {fileID: 0}
     - target: {fileID: 2600792053943793150, guid: a06888cad774e6b449589c08f1f6f8d8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4575,7 +4575,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7874425700481248731, guid: a06888cad774e6b449589c08f1f6f8d8, type: 3}
       propertyPath: orthographic size
-      value: 5.504741
+      value: 9.797743
       objectReference: {fileID: 0}
     - target: {fileID: 7874425700481248731, guid: a06888cad774e6b449589c08f1f6f8d8, type: 3}
       propertyPath: m_BackGroundColor.b
@@ -4673,7 +4673,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 543352648128549141, guid: 68fbc82e82474d047ab6c9bd850e4e44, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.83120394
+      value: 2.720125
       objectReference: {fileID: 0}
     - target: {fileID: 543352648128549141, guid: 68fbc82e82474d047ab6c9bd850e4e44, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4713,7 +4713,7 @@ PrefabInstance:
       objectReference: {fileID: 1307820238}
     - target: {fileID: 660777998242214078, guid: 68fbc82e82474d047ab6c9bd850e4e44, type: 3}
       propertyPath: m_Lens.OrthographicSize
-      value: 4.031736
+      value: 9.88
       objectReference: {fileID: 0}
     - target: {fileID: 4559816201665029454, guid: 68fbc82e82474d047ab6c9bd850e4e44, type: 3}
       propertyPath: m_ScreenX
@@ -4823,6 +4823,10 @@ PrefabInstance:
       propertyPath: _response.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 5427749013389250115, guid: 5b67d0f684e522541b2ff4edf6df9560, type: 3}
+      propertyPath: m_LinearDrag
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6718903653686850966, guid: 5b67d0f684e522541b2ff4edf6df9560, type: 3}
       propertyPath: m_Name
       value: player
@@ -4831,6 +4835,18 @@ PrefabInstance:
       propertyPath: _cameraControl
       value: 
       objectReference: {fileID: 1886357596}
+    - target: {fileID: 7140366919697754058, guid: 5b67d0f684e522541b2ff4edf6df9560, type: 3}
+      propertyPath: _movementSpeed
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 7140366919697754058, guid: 5b67d0f684e522541b2ff4edf6df9560, type: 3}
+      propertyPath: _walkOnAirForceFraction
+      value: 0.123
+      objectReference: {fileID: 0}
+    - target: {fileID: 7140366919697754058, guid: 5b67d0f684e522541b2ff4edf6df9560, type: 3}
+      propertyPath: _groundCheckLayerMask.m_Bits
+      value: 119
+      objectReference: {fileID: 0}
     - target: {fileID: 7363508065860731471, guid: 5b67d0f684e522541b2ff4edf6df9560, type: 3}
       propertyPath: m_LocalPosition.x
       value: 24.7

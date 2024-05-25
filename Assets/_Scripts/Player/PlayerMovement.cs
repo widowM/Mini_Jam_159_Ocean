@@ -6,6 +6,12 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Player _player;
     [SerializeField] private float _movementSpeed = 7.0f;
     [SerializeField] private float _jumpForce = 10f;
+    [Tooltip("This is how much a fraction of the default-Grounded movement speed will be the movement speed while on air." +
+        " A value of 0 will make the player unable to walk while on air. A value of 1 will make him have the same walk speed on air" +
+        "as the speed that has while grounded. In between values will give him a fraction of default speed, for instance 0.5 gives him" +
+        "half the speed.")]
+    [Range(0f, 1f)]
+    [SerializeField] private float _walkOnAirForceFraction;
     [SerializeField] private Rigidbody2D _rb2D;
     [SerializeField] private Transform _groundCheck;
     [SerializeField] private LayerMask _groundCheckLayerMask;
@@ -98,10 +104,14 @@ public class PlayerMovement : MonoBehaviour
         }
         else if (!_isGrounded && !_isPushingScreenBounds)
         {
+            //// Apply horizontal movement with reduced movement speed without affecting vertical velocity
+            //// While jumping
+            //Vector2 horizontalVelocity = new Vector2(_player.PlayerInput.HorizontalInput * _movementSpeed * _walkOnAirForceFraction, _rb2D.velocity.y);
+            //_rb2D.velocity = horizontalVelocity;
             // Apply horizontal movement with reduced movement speed without affecting vertical velocity
             // While jumping
-            Vector2 horizontalVelocity = new Vector2(_player.PlayerInput.HorizontalInput * _movementSpeed * 0.3f, _rb2D.velocity.y);
-            _rb2D.velocity = horizontalVelocity;
+            Vector2 horizontalForce = new Vector2(_player.PlayerInput.HorizontalInput * _movementSpeed * _walkOnAirForceFraction, 0f);
+            _rb2D.AddForce(horizontalForce, ForceMode2D.Force);
         }
 
         if (_cameraControl.OrthographicSize >= _cameraControl.MaxOrthoSize - 0.1f && _isPushingScreenBounds)
