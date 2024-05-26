@@ -28,7 +28,7 @@ public class LevelManager : MonoBehaviour
             Debug.Log("No more scenes in build settings.");
         }
     }
-
+    //
     public void QuitGame()
     {
         Application.Quit();
