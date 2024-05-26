@@ -17,4 +17,9 @@ public class Player : MonoBehaviour
     public PlayerInput PlayerInput => _playerInput;
     public PlayerPhysics PlayerPhysics => _playerPhysics;
     public PlayerAnimation PlayerAnimation => _playerAnimation;
+
+    private void Awake()
+    {
+        Cursor.visible = false;
+    }
 }

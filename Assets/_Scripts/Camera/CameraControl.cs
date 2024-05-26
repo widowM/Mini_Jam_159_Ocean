@@ -1,10 +1,12 @@
 using UnityEngine;
 using Cinemachine;
+using System.Collections;
+using Unity.VisualScripting;
 
 public class CameraControl : MonoBehaviour
 {
     [SerializeField] private Player _player;
-
+    [SerializeField] private Transform _followPoint;
     [SerializeField] private CinemachineBrain _cmBrain;
 
     [SerializeField] private CinemachineVirtualCamera _cmCam;
@@ -13,8 +15,8 @@ public class CameraControl : MonoBehaviour
     [SerializeField] private float _minOrthoSize = 1f;
     [SerializeField] private float _maxOrthoSize = 10f;
 
-
     [SerializeField] private float _zoomSpeed = 1f;
+
     [Header("Broadcast on Event Channels")]
     [SerializeField] private VoidEventChannelSO _gameOverSO;
 
@@ -22,6 +24,7 @@ public class CameraControl : MonoBehaviour
 
     public float OrthographicSize => _cmCam.m_Lens.OrthographicSize;
     public float MaxOrthoSize => _maxOrthoSize;
+
     private void Start()
     {
         // Set the initial orthographic size
@@ -75,13 +78,17 @@ public class CameraControl : MonoBehaviour
 
     public void WidenDeadZone()
     {
+        // Stop following player
         _cmCam.Follow = null;
+        _cmCam.LookAt = null;
         _cmFramingTransposer.m_DeadZoneWidth = 2;
     }
 
     public void SetDeadZoneWidthToZero()
     {
-        _cmCam.Follow = _player.gameObject.transform;
+        // Follow player
         _cmFramingTransposer.m_DeadZoneWidth = 0;
+        _cmCam.Follow = _followPoint;
+        _cmCam.LookAt = _followPoint;
     }
 }

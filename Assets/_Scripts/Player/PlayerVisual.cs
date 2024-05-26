@@ -8,7 +8,10 @@ public class PlayerVisual : MonoBehaviour
     private float _lastDirection = 1;
     [SerializeField] private Transform _spriteTransform;
     [SerializeField] private SpriteRenderer _characterSpriteRend;
+    [SerializeField] private Sprite _levelCompleteSprite;
 
+    //[Header("Listen to Event Channels")]
+    //[SerializeField] private VoidEventChannelSO _levelCompletedSO;
     public SpriteRenderer CharacterSpriteRend => _characterSpriteRend;
 
     private void Update()
@@ -26,4 +29,26 @@ public class PlayerVisual : MonoBehaviour
 
         _spriteTransform.localScale = new Vector2(_lastDirection, 1);
     }
+
+    //private void SetLevelCompletePlayerSpriteAndPauseTime()
+    //{
+    //    _characterSpriteRend.sprite = _levelCompleteSprite;
+    //    StartCoroutine(DelayFreezeTime());
+    //}
+
+    //IEnumerator DelayFreezeTime()
+    //{
+    //    yield return new WaitForSecondsRealtime(0.1f);
+    //    Time.timeScale = 0;
+
+    //}
+    //private void OnEnable()
+    //{
+    //    _levelCompletedSO.OnEventRaised += SetLevelCompletePlayerSpriteAndPauseTime;
+    //}
+
+    //private void OnDisable()
+    //{
+    //    _levelCompletedSO.OnEventRaised -= SetLevelCompletePlayerSpriteAndPauseTime;
+    //}
 }

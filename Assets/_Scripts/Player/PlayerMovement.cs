@@ -5,7 +5,6 @@ public class PlayerMovement : MonoBehaviour
     // Fields
     [SerializeField] private Player _player;
     [SerializeField] private float _movementSpeed = 7.0f;
-    [SerializeField] private float _jumpForce = 10f;
     [Tooltip("This is how much a fraction of the default-Grounded movement speed will be the movement speed while on air." +
         " A value of 0 will make the player unable to walk while on air. A value of 1 will make him have the same walk speed on air" +
         "as the speed that has while grounded. In between values will give him a fraction of default speed, for instance 0.5 gives him" +
@@ -69,6 +68,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (_player.PlayerInput.PressedJumpButton && _isGrounded)
         {
+            _playerSoundsAudioSource.pitch = Random.Range(0.85f, 1);
             _playerSoundsAudioSource.PlayOneShot(_playerJumpAudioClip);
             ExecuteJumpLogic(_initialJumpForce);
         }
@@ -149,7 +149,7 @@ public class PlayerMovement : MonoBehaviour
        
     }
 
-    private void StopPlayer()
+    public void StopPlayer()
     {
         // Stop player from moving but retain velocity.y in case of jumping
         _rb2D.velocity = new Vector2(_rb2D.velocity.x, _rb2D.velocity.y);
@@ -173,6 +173,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 if (!_isGrounded)
                 {
+                    _playerSoundsAudioSource.pitch = Random.Range(0.85f, 1);
                     _playerSoundsAudioSource.clip = _playerLandingAudioClip;
                     _playerSoundsAudioSource.PlayDelayed(0.05f);
                     _landingParticleSystem.Play();

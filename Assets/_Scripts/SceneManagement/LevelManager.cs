@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
+    private static bool _isPaused = false;
+    public static bool IsPaused => _isPaused;
     public void ReloadCurrentScene()
     {
         string sceneName = SceneManager.GetActiveScene().name;
@@ -34,6 +36,18 @@ public class LevelManager : MonoBehaviour
 
     public void ContinueGame()
     {
+        Cursor.visible = false;
         Time.timeScale = 1.0f;
+    }
+
+    public void PauseGame()
+    {
+        EnableCursor();
+        Time.timeScale = 0f;
+    }
+
+    public void EnableCursor()
+    {
+        Cursor.visible = true;
     }
 }

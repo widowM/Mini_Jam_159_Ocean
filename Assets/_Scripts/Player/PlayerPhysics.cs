@@ -11,6 +11,8 @@ public class PlayerPhysics : MonoBehaviour
     private bool _isPushingRock = false;
     private bool _isPushingBounds = false;
     [SerializeField] private AudioSource _rockPushingAudioSource;
+    [Header("Broadcast on Event Channels")]
+    [SerializeField] private VoidEventChannelSO _gameOverSO;
     public bool IsTouchingRock => _isTouchingRock;
     public bool IsPushingRock => _isPushingRock;
     public AudioSource RockPushingAudioSource => _rockPushingAudioSource;
@@ -79,6 +81,14 @@ public class PlayerPhysics : MonoBehaviour
         if (collision.gameObject.CompareTag("Ball"))
         {
             _isTouchingRock = false;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("DeathZone"))
+        {
+            _gameOverSO.RaiseEvent();
         }
     }
 }
