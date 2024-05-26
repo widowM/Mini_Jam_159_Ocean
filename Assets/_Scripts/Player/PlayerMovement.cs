@@ -17,9 +17,17 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask _groundCheckLayerMask;
     [SerializeField] private BoxCollider2D _playerCollider;
     [SerializeField] private CameraControl _cameraControl;
+    [SerializeField] private AudioSource _playerSoundsAudioSource;
+    [SerializeField] private ParticleSystem _landingParticleSystem;
+    [SerializeField] private float _initialJumpForce;
+    [SerializeField] private float _fallingGravityScale;
+
+    [Header("Player sounds")]
+    [SerializeField] private AudioClip _playerJumpAudioClip;
+    [SerializeField] private AudioClip _playerLandingAudioClip;
     private Bounds _screenBounds;
     private Camera _mainCam;
-    private bool _isGrounded;
+    private bool _isGrounded = false;
 
     private bool _nearMin;
     private bool _nearMax;
@@ -59,9 +67,19 @@ public class PlayerMovement : MonoBehaviour
 
         _isGrounded = CheckGrounded();
 
-        if (Input.GetKeyDown(KeyCode.Space) && _isGrounded)
+        if (_player.PlayerInput.PressedJumpButton && _isGrounded)
         {
-            ExecuteJumpLogic();
+            _playerSoundsAudioSource.PlayOneShot(_playerJumpAudioClip);
+            ExecuteJumpLogic(_initialJumpForce);
+        }
+
+        if (_rb2D.velocity.y < -0.1f)
+        {
+            _rb2D.gravityScale = _fallingGravityScale;
+        }
+        else
+        {
+            _rb2D.gravityScale = 1;
         }
     }
 
@@ -74,6 +92,7 @@ public class PlayerMovement : MonoBehaviour
             Vector3 newPosition = new Vector3(_screenBounds.min.x + 0.5f, transform.position.y, _playerCollider.bounds.center.z);
             transform.position = newPosition;
             _player.PlayerAnimation.ChangeState(2);
+            
             return;
         }
         // Same for the right bounds
@@ -104,12 +123,6 @@ public class PlayerMovement : MonoBehaviour
         }
         else if (!_isGrounded && !_isPushingScreenBounds)
         {
-            //// Apply horizontal movement with reduced movement speed without affecting vertical velocity
-            //// While jumping
-            //Vector2 horizontalVelocity = new Vector2(_player.PlayerInput.HorizontalInput * _movementSpeed * _walkOnAirForceFraction, _rb2D.velocity.y);
-            //_rb2D.velocity = horizontalVelocity;
-            // Apply horizontal movement with reduced movement speed without affecting vertical velocity
-            // While jumping
             Vector2 horizontalForce = new Vector2(_player.PlayerInput.HorizontalInput * _movementSpeed * _walkOnAirForceFraction, 0f);
             _rb2D.AddForce(horizontalForce, ForceMode2D.Force);
         }
@@ -142,9 +155,10 @@ public class PlayerMovement : MonoBehaviour
         _rb2D.velocity = new Vector2(_rb2D.velocity.x, _rb2D.velocity.y);
     }
 
-    private void ExecuteJumpLogic()
+    private void ExecuteJumpLogic(float jumpForce)
     {
-        _rb2D.AddForce(Vector3.up * _jumpForce, ForceMode2D.Impulse);
+        
+        _rb2D.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);
     }
 
     private bool CheckGrounded()
@@ -157,6 +171,12 @@ public class PlayerMovement : MonoBehaviour
 
             if (hit.collider != null)
             {
+                if (!_isGrounded)
+                {
+                    _playerSoundsAudioSource.clip = _playerLandingAudioClip;
+                    _playerSoundsAudioSource.PlayDelayed(0.05f);
+                    _landingParticleSystem.Play();
+                }
                 return true;
             }
         }

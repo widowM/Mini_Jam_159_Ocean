@@ -15,6 +15,6 @@ public class TitleAnimation : MonoBehaviour
     IEnumerator StartTitleAnimation()
     {
         yield return new WaitForSeconds(0.2f);
-        _title.DOScale(new Vector2(1.05f, 1.05f), 15).SetLoops(-1, LoopType.Yoyo);
+        _title.DOScale(new Vector2(1.2f, 1.2f), 15).SetLoops(-1, LoopType.Yoyo);
     }
 }

@@ -75,11 +75,13 @@ public class CameraControl : MonoBehaviour
 
     public void WidenDeadZone()
     {
+        _cmCam.Follow = null;
         _cmFramingTransposer.m_DeadZoneWidth = 2;
     }
 
     public void SetDeadZoneWidthToZero()
     {
+        _cmCam.Follow = _player.gameObject.transform;
         _cmFramingTransposer.m_DeadZoneWidth = 0;
     }
 }

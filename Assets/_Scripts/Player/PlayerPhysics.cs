@@ -9,19 +9,46 @@ public class PlayerPhysics : MonoBehaviour
     [SerializeField] private LayerMask _pushCheckLayerMask;
     private bool _isTouchingRock = false;
     private bool _isPushingRock = false;
-
+    private bool _isPushingBounds = false;
+    [SerializeField] private AudioSource _rockPushingAudioSource;
     public bool IsTouchingRock => _isTouchingRock;
     public bool IsPushingRock => _isPushingRock;
+    public AudioSource RockPushingAudioSource => _rockPushingAudioSource;
 
     private void Update()
     {
         if (RockPushingCheck())
         {
+            if (!_isPushingRock)
+            {
+                _rockPushingAudioSource.Play();
+            }
             _isPushingRock = true;
         }
         else
         {
+            if (_isPushingRock)
+            {
+                _rockPushingAudioSource.Stop();
+            }
             _isPushingRock = false;
+        }
+
+        if (_player.PlayerMovement.IsPushingScreenBounds)
+        {
+            if (!_isPushingBounds)
+            {
+                _rockPushingAudioSource.Play();
+            }
+            _isPushingBounds = true;
+        }
+        else
+        {
+            if (!_isPushingBounds && !IsPushingRock)
+            {
+                _rockPushingAudioSource.Stop();
+            }
+            _isPushingBounds = false;
         }
     }
 

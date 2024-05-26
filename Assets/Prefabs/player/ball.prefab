@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 58e2f5a3c4ca34940ad7b02b8f37d4c8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 114c104f9a2f8774499c72558ec004cd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 222954764318212859}
   - component: {fileID: 2474606066260472688}
   - component: {fileID: 5804877846554425735}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ball
   m_TagString: Ball
   m_Icon: {fileID: 0}
@@ -112,7 +112,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 16.73, y: -26.02, z: 0.45984614}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
+  m_LocalScale: {x: 1.7969999, y: 1.7969999, z: 1.198}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 241639601820201969}
@@ -177,6 +177,6 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.029077448}
   serializedVersion: 2
-  m_Radius: 0.8541393
+  m_Radius: 0.82506186
